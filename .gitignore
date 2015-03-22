@@ -1,0 +1,11 @@
+*.egg*
+*.py[cod]
+.coverage
+.testrepository/
+.tox/
+.venv/
+AUTHORS
+ChangeLog
+build/
+cover/
+dist
