@@ -5,7 +5,9 @@
         ${self.javascript()}
     </head>
     <body>
+        ${self.nav()}
         ${self.body()}
+        ${self.footer()}
     </body>
 </html>
 
@@ -18,5 +20,18 @@
 </%def>
 
 <%def name="javascript()">
+</%def>
+
+<%def name="nav()">
+    <div class="navigation">
+        <a href="/">Home</a> | 
+        <a href="/results">Results</a>
+    </div>
+</%def>
+
+<%def name="footer()">
+    <div class="footer">
+
+    </div>
 </%def>
 

@@ -14,24 +14,11 @@
 #    under the License.
 
 from pecan import expose
-from webob.exc import status_map
-
-from refstack_ui.controllers import results
+from pecan import rest
 
 
-class RootController(object):
+class ResultsController(rest.RestController):
 
-    results = results.ResultsController()
-
-    @expose(generic=True, template='index.html')
-    def index(self):
+    @expose(generic=True, template='results.html')
+    def get(self):
         return {}
-
-    @expose('error.html')
-    def error(self, status):
-        try:
-            status = int(status)
-        except ValueError:  # pragma: no cover
-            status = 500
-        message = getattr(status_map.get(status), 'explanation', '')
-        return dict(status=status, message=message)
