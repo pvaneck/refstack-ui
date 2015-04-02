@@ -1,0 +1,60 @@
+body {
+  background: white;
+  color: black;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Verdana', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+div#content  {
+  width: 75%;
+  margin: 0 auto;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+fieldset {
+  border: 0;
+}
+
+input.error {
+  background: #FAFF78;
+}
+
+header {
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Futura-CondensedExtraBold', 'Futura', 'Helvetica', sans-serif;
+  text-transform: uppercase;
+}
+
+.navigation {
+  margin: 10px;
+  text-align: center;
+  word-spacing: .5em;
+  color: #929292;
+}
+
+.navigation a {
+  color: #489A00;
+}
+
+.navigation a:hover {
+  color: #65C70F;
+}
+
+.footer {
+  background: none repeat scroll 0% 0% #333;
+}
