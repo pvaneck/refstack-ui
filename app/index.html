@@ -22,14 +22,22 @@
         <title>Refstack</title>
 
         <link rel="shorcut icon" href="favicon.ico">
+
+        <link rel="stylesheet" href="assets/lib/bootstrap/dist/css/bootstrap.min.css">
         <script src="assets/lib/angular/angular.js"></script>
-        <script src="assets/lib/angular-route/angular-route.js"></script>
+        <script src="assets/lib/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="assets/lib/angular-resource/angular-resource.js"></script>
         <script src="app.js"></script>
+        
+        <!-- Controllers -->
+        <script src="shared/header/headerController.js"></script>
+        <script src="components/capabilities/capabilitiesController.js"></script>
+
     </head>
 
-    <body>
-        <h2>Refstack</h2>
+    <body class="container">
+        <header ng-include src="'shared/header/header.html'"></header>
 
-        <div ng-view></div>
+        <div ui-view></div>
     </body>
 </html>

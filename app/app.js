@@ -3,17 +3,28 @@
 /* App Module */
 
 var refstackApp = angular.module('refstackApp', [
-  'ngRoute', 
-]);
+  'ui.router', 'ngResource']);
 
-refstackApp.config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/about', {
-        templateUrl: '/components/about/about.html', 
-      }).
-      otherwise({
-        redirectTo: '/'
-      });
-  }]);
+refstackApp.config(['$stateProvider', '$urlRouterProvider',
+    function($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise('/');
+        $stateProvider.
+            state('home', {
+                url: '/',
+                templateUrl: '/components/home/home.html'
+            }).
+            state('about', {
+                url: '/about',
+                templateUrl: '/components/about/about.html'
+            }).
+            state('capabilities', {
+                url: '/capabilities',
+                templateUrl: '/components/capabilities/capabilities.html',
+                controller: 'capabilitiesController'
+            }).
+            state('results', {
+                url: '/results',
+                templateUrl: '/components/results/results.html'
+            })
+    }]);
 

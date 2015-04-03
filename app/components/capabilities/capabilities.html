@@ -1,0 +1,23 @@
+<h3>DefCore Capabilities</h3>
+Version:
+<select ng-model="version" ng-change="update()">
+    <option value="2015.03">2015.03</option>
+</select>
+<br /><br />
+
+<ul class="capabilities">
+  <li ng-repeat="capability in capabilities.capabilities">
+    <span><strong>{{capability.name}}</strong></span>
+    <ul>
+        <li ng-repeat="test in capability.tests">
+            {{test}}
+        </li>
+    </ul>
+  </li>
+</ul>
+<hr>
+<a ng-click="toggleJson = !toggleJson">Show JSON</a>
+<div ng-show="toggleJson" id="jsonCapabilities">
+    <pre>{{capabilities | json}}</pre>
+</div>
+<br /><br />
