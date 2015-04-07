@@ -4,13 +4,44 @@ Version:
     <option value="2015.03">2015.03</option>
 </select>
 <br /><br />
+<div class='checkbox'>
+    <span>T</span>
+    <label>
+    <input type="checkbox" ng-model="status.required" ng-true-value="'required'" ng-false-value="''"> 
+    Required
+    </label>
+    <label>
+    <input type="checkbox" ng-model="status.advisory" ng-true-value="'advisory'" ng-false-value="''">
+    Advisory
+    </label>
+    <label>
+    <input type="checkbox" ng-model="status.deprecated" ng-true-value="'deprecated'" ng-false-value="''">
+    Deprecated
+    </label>
+    <label>
+    <input type="checkbox" ng-model="status.removed" ng-true-value="'removed'" ng-false-value="''">
+    Removed
+    </label>
+</div>
+
+<br /><br />
 
 <ul class="capabilities">
-  <li ng-repeat="capability in capabilities.capabilities">
-    <span><strong>{{capability.name}}</strong></span>
+  <li ng-repeat="capability in capabilities.capabilities | arrayConverter | filter:filterStatus">
+    <span><strong>{{capability.name}}</strong></span><br />
+    <em>{{capability.description}}</em><br />
+    <em>Status: {{capability.status}}</em><br />
+    <em>Achievements ({{capability.achievements.length}})</em><br />
+        <ul class="list-inline">
+            <li ng-repeat="achievement in capability.achievements">
+                &bull; {{achievement}}
+            </li>
+        </ul>
+    
+    <em>Tests ({{capability.tests.length}})</em>
     <ul>
         <li ng-repeat="test in capability.tests">
-            {{test}}
+            {{test}}({{test.length}})
         </li>
     </ul>
   </li>

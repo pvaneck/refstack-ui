@@ -31,9 +31,6 @@ input.error {
   background: #FAFF78;
 }
 
-header {
-  text-align: center;
-}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Futura-CondensedExtraBold', 'Futura', 'Helvetica', sans-serif;
@@ -57,4 +54,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer {
   background: none repeat scroll 0% 0% #333;
+}
+
+.checkbox {
+    word-spacing: 20px;
+    background: #F8F8F8;
+    padding: 10px;
 }
