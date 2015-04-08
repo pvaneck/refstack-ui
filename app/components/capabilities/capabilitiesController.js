@@ -5,7 +5,7 @@
 var refstackApp = angular.module('refstackApp');
 
 refstackApp.controller('capabilitiesController', ['$scope', '$http', function($scope, $http) {
-    $scope.version = "2015.03";
+    $scope.version = '2015.03';
     $scope.update = function() {
         // Rate-limiting is an issue with this URL. Using a local copy for now.
         // var content_url = 'https://api.github.com/repos/openstack/defcore/contents/'.concat($scope.version, '.json');
@@ -16,24 +16,47 @@ refstackApp.controller('capabilitiesController', ['$scope', '$http', function($s
             $scope.capabilities = data;
         }).error(function(error) {
             console.log(error);
-            $scope.capabilities = "Error retrieving capabilities."; 
+            $scope.capabilities = 'Error retrieving capabilities.'; 
         });
     }
     $scope.update()
+    $scope.target = 'platform';
     $scope.status = {
         required: 'required',
         advisory: '',
         deprecated: '',
         removed: ''
     };
-    
+
+    $scope.filterProgram = function(capability){
+        var components = $scope.capabilities.components;
+        if ($scope.target === 'platform') {
+            var platform_components = $scope.capabilities.platform.required;
+            var cap_array = [];
+            // For each component required for the platform program.
+            angular.forEach(platform_components, function(component) {
+                // Get each capability belonging to each status.
+                angular.forEach(components[component], function(capabilities) {
+                    cap_array = cap_array.concat(capabilities);
+                });
+            });
+            return (cap_array.indexOf(capability.id) > -1);
+        }
+        else {
+            var cap_array = [];
+            angular.forEach(components[$scope.target], function(capabilities) {
+                cap_array = cap_array.concat(capabilities);
+            });
+            return (cap_array.indexOf(capability.id) > -1);
+        }
+    };
+
     $scope.filterStatus = function(capability){
         return capability.status === $scope.status.required || 
             capability.status === $scope.status.advisory ||
             capability.status === $scope.status.deprecated ||
             capability.status === $scope.status.removed;
     };
-
 }]);
 
 // Convert an object of objects to an array of objects to use with ng-repeat
@@ -41,7 +64,8 @@ refstackApp.controller('capabilitiesController', ['$scope', '$http', function($s
 refstackApp.filter('arrayConverter', function() {
     return function(objects) {
         var array = [];
-        angular.forEach(objects, function(object) {
+        angular.forEach(objects, function(object, key) {
+            object['id'] = key;
             array.push(object);
         });
         return array;

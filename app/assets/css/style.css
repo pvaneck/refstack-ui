@@ -12,10 +12,6 @@ a:hover {
   text-decoration: underline;
 }
 
-div#content  {
-  width: 75%;
-  margin: 0 auto;
-}
 
 form {
   margin: 0;
@@ -37,12 +33,6 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-.navigation {
-  margin: 10px;
-  text-align: center;
-  word-spacing: .5em;
-  color: #929292;
-}
 
 .navigation a {
   color: #489A00;
@@ -56,8 +46,47 @@ h1, h2, h3, h4, h5, h6 {
   background: none repeat scroll 0% 0% #333;
 }
 
+.required {
+  color: #1D6503;
+}
+
+.advisory {
+  color: #9F8501;
+}
+
+.deprecated {
+  color: #B03838;
+}
+
+.removed {
+  color: #801601;
+}
+
 .checkbox {
-    word-spacing: 20px;
-    background: #F8F8F8;
-    padding: 10px;
+  word-spacing: 20px;
+  background: #F8F8F8;
+  padding: 10px;
+}
+
+.capabilities {
+  color: #4B4B4B;
+}
+
+.capabilities a {
+  cursor: pointer;
+}
+
+.capabilities .capability-list-item {
+  border-bottom: 2px solid #AFAFAF;
+  padding-bottom: .6em;
+}
+
+.capabilities .capability-name {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: black;
+}
+
+.list-inline li:before {
+  content: '\00BB';
 }
