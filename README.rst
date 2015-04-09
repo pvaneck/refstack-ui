@@ -4,6 +4,9 @@ Refstack User Interface
 
 User interface for interacting with the Refstack API.
 
+Setup
+=====
+
 You can start a development server by doing the following:
 
 Install NodeJS and NPM:
@@ -22,4 +25,7 @@ Install dependencies and start the server:
 
 :code:`npm start`
 
-By default, as noted in package.json, the server will listen on port 8000.
+Doing this will automatically perform :code:`npm start` and :code:`bower install`
+to get all dependencies.
+
+By default, as noted in package.json, the server will use 0.0.0.0:8080.
