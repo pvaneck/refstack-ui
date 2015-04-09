@@ -3,7 +3,7 @@
 /* App Module */
 
 var refstackApp = angular.module('refstackApp', [
-  'ui.router', 'ngResource', 'ui.bootstrap']);
+  'ui.router', 'ui.bootstrap']);
 
 refstackApp.config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {

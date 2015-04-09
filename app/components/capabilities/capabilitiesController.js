@@ -8,7 +8,7 @@ refstackApp.controller('capabilitiesController', ['$scope', '$http', function($s
     $scope.version = '2015.03';
     $scope.hideAchievements = true;
     $scope.hideTests = true;
-    
+
     $scope.update = function() {
         // Rate-limiting is an issue with this URL. Using a local copy for now.
         // var content_url = 'https://api.github.com/repos/openstack/defcore/contents/'.concat($scope.version, '.json');
@@ -19,7 +19,7 @@ refstackApp.controller('capabilitiesController', ['$scope', '$http', function($s
             $scope.capabilities = data;
         }).error(function(error) {
             console.log(error);
-            $scope.capabilities = 'Error retrieving capabilities.'; 
+            $scope.capabilities = 'Error retrieving capabilities.';
         });
     }
     $scope.update()
@@ -55,7 +55,7 @@ refstackApp.controller('capabilitiesController', ['$scope', '$http', function($s
     };
 
     $scope.filterStatus = function(capability){
-        return capability.status === $scope.status.required || 
+        return capability.status === $scope.status.required ||
             capability.status === $scope.status.advisory ||
             capability.status === $scope.status.deprecated ||
             capability.status === $scope.status.removed;

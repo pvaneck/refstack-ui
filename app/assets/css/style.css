@@ -13,11 +13,16 @@ a:hover {
 }
 
 .heading {
-
   font-size: 3em;
   font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
+.heading img {
+  height: 50px;
+  vertical-align: text-bottom;
+}
 
 form {
   margin: 0;
@@ -123,4 +128,3 @@ h1, h2, h3, h4, h5, h6 {
   width: 70%;
   height: 70%;
 }
-

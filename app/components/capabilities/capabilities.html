@@ -16,7 +16,7 @@
 <strong>Capability Status:</strong>
 <div class="checkbox">
     <label>
-    <input type="checkbox" ng-model="status.required" ng-true-value="'required'" ng-false-value="''"> 
+    <input type="checkbox" ng-model="status.required" ng-true-value="'required'" ng-false-value="''">
     <span class="required">Required</span>
     </label>
     <label>
@@ -32,8 +32,7 @@
     <span class="removed">Removed</span>
     </label>
 </div>
-<p><small>Flagged tests, indicated by <span class="flagged"></span>, are tests with known issues.</small></p>
-
+<p><small>Tests marked with <span class="flagged"></span> are tests flagged by DefCore.</small></p>
 
 <ol class="capabilities">
   <li class="capability-list-item" ng-repeat="capability in capabilities.capabilities | arrayConverter | filter:filterProgram | filter:filterStatus">
