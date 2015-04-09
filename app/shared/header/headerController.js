@@ -4,6 +4,7 @@
 
 var refstackApp = angular.module('refstackApp')
 refstackApp.controller('headerController', ['$scope', '$location', function($scope, $location) {
+    $scope.navbarCollapsed = true;
     $scope.isActive = function(viewLocation) {
         var path = $location.path().substr(0, viewLocation.length);
         if (path === viewLocation) {

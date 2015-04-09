@@ -10,6 +10,7 @@
     <option value="compute">OpenStack Powered Compute</option>
     <option value="object">OpenStack Powered Object Storage</option>
 </select>
+<span class="program-about"><a target="_blank" href="http://www.openstack.org/brand/interop/">About</a></span>
 <br /><br />
 
 <strong>Capability Status:</strong>
@@ -31,32 +32,41 @@
     <span class="removed">Removed</span>
     </label>
 </div>
+<p><small>Flagged tests, indicated by <span class="flagged"></span>, are tests with known issues.</small></p>
 
-<br />
 
 <ol class="capabilities">
   <li class="capability-list-item" ng-repeat="capability in capabilities.capabilities | arrayConverter | filter:filterProgram | filter:filterStatus">
     <span class="capability-name">{{capability.name}}</span><br />
     <em>{{capability.description}}</em><br />
     Status: <span class="{{capability.status}}">{{capability.status}}</span><br />
-    <em><a ng-click="showAchievements = ! showAchievements">Achievements ({{capability.achievements.length}})</a></em><br />
-        <ol ng-show="showAchievements" class="list-inline">
-            <li ng-repeat="achievement in capability.achievements">
-                {{achievement}}
-            </li>
-        </ol>
-    
-    <em><a ng-click="showTests = ! showTests">Tests ({{capability.tests.length}})</a></em>
-    <ul ng-show="showTests">
+    <a ng-click="hideAchievements = !hideAchievements">Achievements ({{capability.achievements.length}})</a><br />
+    <ol collapse="hideAchievements" class="list-inline">
+        <li ng-repeat="achievement in capability.achievements">
+            {{achievement}}
+        </li>
+    </ol>
+
+    <a ng-click="hideTests = !hideTests">Tests ({{capability.tests.length}})</a>
+    <ul collapse="hideTests">
         <li ng-repeat="test in capability.tests">
-            {{test}}
+           <span ng-class="{'flagged': capability.flagged.indexOf(test) > -1}"> {{test}}</span>
         </li>
     </ul>
   </li>
 </ol>
 <hr>
-<a ng-click="toggleJson = !toggleJson">Show JSON</a>
-<div ng-show="toggleJson" id="jsonCapabilities">
-    <pre>{{capabilities | json}}</pre>
+
+<div class="criteria">
+    <h4><a ng-click="hideCriteria = !hideCriteria">Criteria</a></h4>
+    <div collapse="hideCriteria">
+        <ul>
+            <li ng-repeat="(key, criterion) in capabilities.criteria">
+                <span class="criterion-name">{{criterion.name}}</span><br />
+                <em>{{criterion.Description}}</em><br />
+                Weight: {{criterion.weight}}
+            </li>
+        </ul>
+    </div>
 </div>
 <br /><br />

@@ -12,6 +12,12 @@ a:hover {
   text-decoration: underline;
 }
 
+.heading {
+
+  font-size: 3em;
+  font-weight: bold;
+}
+
 
 form {
   margin: 0;
@@ -27,19 +33,8 @@ input.error {
   background: #FAFF78;
 }
 
-
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Futura-CondensedExtraBold', 'Futura', 'Helvetica', sans-serif;
-  text-transform: uppercase;
-}
-
-
-.navigation a {
-  color: #489A00;
-}
-
-.navigation a:hover {
-  color: #65C70F;
 }
 
 .footer {
@@ -72,7 +67,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #4B4B4B;
 }
 
-.capabilities a {
+.capabilities a, .criteria a {
   cursor: pointer;
 }
 
@@ -87,6 +82,45 @@ h1, h2, h3, h4, h5, h6 {
   color: black;
 }
 
+#criteria {
+  color: #4B4B4B;
+}
+
+.criterion-name {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
 .list-inline li:before {
   content: '\00BB';
 }
+
+.flagged:before {
+  color: #E6A100;
+  content: '\2691';
+}
+
+.program-about {
+  font-size: .8em;
+}
+
+.jumbotron .left {
+  width: 70%;
+}
+
+.container .jumbotron {
+  background: #F6F6F6;
+  border-top: 2px solid #C9C9C9;
+  border-bottom: 2px solid #C9C9C9;
+  border-radius: 0;
+}
+
+.jumbotron .right {
+  width: 30%;
+}
+
+.jumbotron img {
+  width: 70%;
+  height: 70%;
+}
+

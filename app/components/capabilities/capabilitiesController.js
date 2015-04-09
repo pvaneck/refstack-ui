@@ -6,6 +6,9 @@ var refstackApp = angular.module('refstackApp');
 
 refstackApp.controller('capabilitiesController', ['$scope', '$http', function($scope, $http) {
     $scope.version = '2015.03';
+    $scope.hideAchievements = true;
+    $scope.hideTests = true;
+    
     $scope.update = function() {
         // Rate-limiting is an issue with this URL. Using a local copy for now.
         // var content_url = 'https://api.github.com/repos/openstack/defcore/contents/'.concat($scope.version, '.json');
@@ -71,5 +74,3 @@ refstackApp.filter('arrayConverter', function() {
         return array;
     };
 });
-
-
